@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Project_Do_an_4.Models.TinTuc>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.likee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.binhluan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.likee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.binhluan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaTT }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaTT }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaTT })
+        </td>
+    </tr>
+}
+
+</table>

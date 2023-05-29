@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    android:orientation="vertical"
+    tools:context=".Activity.QLĐonHang.MainActivitySuaTrangThaiDH">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ImageView_OnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_text"
+                    android:backgroundTint="#FF5722"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_left" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/baloo2_semibold"
+                    android:text="Sửa trạng thái đơn hàng"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/mataikhoan"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold"
+                android:hint="Mã tài khoản "
+                android:inputType="number"
+                android:paddingStart="30dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/machitietsp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold"
+                android:hint="Mã chi tiết sản phẩm "
+                android:paddingStart="30dp"
+                android:inputType="number"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/soluong"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold"
+                android:hint="Số lượng "
+                android:paddingStart="30dp"
+                android:inputType="number"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/tongtien"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold"
+                android:hint="Tổng tiền "
+                android:paddingStart="30dp"
+                android:inputType="number"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:id="@+id/okkk"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold">
+
+                <Spinner
+                    android:id="@+id/masptk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/tinhan"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold"
+                android:hint="Tin nhắn"
+                android:paddingStart="30dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/banktien"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold"
+                android:hint="Phương thức thanh toán"
+                android:paddingStart="30dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/datetime"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold"
+                android:hint="Ngày đặt"
+                android:paddingStart="30dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/note"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/baloo2_semibold"
+                android:hint="Ghi chú"
+                android:paddingStart="30dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black" />
+
+            <android.widget.Button
+                android:id="@+id/btnsua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#FF5722"
+                android:text="Sửa"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

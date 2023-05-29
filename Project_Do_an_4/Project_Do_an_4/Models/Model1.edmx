@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Projcet_ban_hoaaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id_Account" />
+          </Key>
+          <Property Name="Id_Account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="Numberphone" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="JoinDate" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Id_Cart" />
+          </Key>
+          <Property Name="Id_Cart" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Account" Type="int" />
+          <Property Name="Id_productdetails" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="TotalMoney" Type="int" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id_Category" />
+          </Key>
+          <Property Name="Id_Category" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCategory" Type="nvarchar(max)" />
+          <Property Name="PictureCategory" Type="nvarchar(max)" />
+          <Property Name="JoinDate" Type="nvarchar(max)" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id_comment" />
+          </Key>
+          <Property Name="id_comment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Account" Type="int" />
+          <Property Name="Id_Product" Type="int" />
+          <Property Name="binhluan" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Messege">
+          <Key>
+            <PropertyRef Name="Id_TinNhan" />
+          </Key>
+          <Property Name="Id_TinNhan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_MaGui" Type="int" />
+          <Property Name="Id_MaNhan" Type="int" />
+          <Property Name="Noidung" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Notify">
+          <Key>
+            <PropertyRef Name="Id_notify" />
+          </Key>
+          <Property Name="Id_notify" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Account" Type="int" />
+          <Property Name="Id_productdetails" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="watched" Type="int" />
+        </EntityType>
+        <EntityType Name="order_">
+          <Key>
+            <PropertyRef Name="Id_Order" />
+          </Key>
+          <Property Name="Id_Order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Account" Type="int" />
+          <Property Name="Id_productdetails" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="TotalMoney" Type="int" />
+          <Property Name="Message" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentMethod" Type="nvarchar" MaxLength="300" />
+          <Property Name="NgayDat" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id_product" />
+          </Key>
+          <Property Name="Id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_danhmuc" Type="int" />
+          <Property Name="NameProduct" Type="nvarchar" MaxLength="200" />
+          <Property Name="Content" Type="nvarchar" MaxLength="200" />
+          <Property Name="sales" Type="int" />
+          <Property Name="views" Type="int" />
+          <Property Name="Imagelinks" Type="nvarchar" MaxLength="300" />
+          <Property Name="JoinDate" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductDetails">
+          <Key>
+            <PropertyRef Name="Id_productdetails" />
+          </Key>
+          <Property Name="Id_productdetails" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_product" Type="int" />
+          <Property Name="Size" Type="nvarchar" MaxLength="200" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Promotionalprice" Type="int" />
+          <Property Name="Picture_1" Type="nvarchar" MaxLength="300" />
+          <Property Name="Picture_2" Type="nvarchar" MaxLength="300" />
+          <Property Name="Picture_3" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TinTuc">
+          <Key>
+            <PropertyRef Name="MaTT" />
+          </Key>
+          <Property Name="MaTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="300" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="200" />
+          <Property Name="NgayDang" Type="datetime" />
+          <Property Name="Id_Account" Type="int" />
+          <Property Name="likee" Type="int" />
+          <Property Name="binhluan" Type="int" />
+        </EntityType>
+        <Association Name="FK__Cart__Id_product__30C33EC3">
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="Id_productdetails" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="Id_productdetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__Notes__2FCF1A8A">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__Id_Acco__5CA1C101">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__Id_Prod__5D95E53A">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id_product" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Id_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messege__Id_MaGu__59C55456">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Messege" Type="Self.Messege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Messege">
+              <PropertyRef Name="Id_MaGui" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messege__Id_MaNh__58D1301D">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Messege" Type="Self.Messege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Messege">
+              <PropertyRef Name="Id_MaNhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notify__Id_produ__3864608B">
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Notify" Type="Self.Notify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="Id_productdetails" />
+            </Principal>
+            <Dependent Role="Notify">
+              <PropertyRef Name="Id_productdetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notify__watched__37703C52">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Notify" Type="Self.Notify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Notify">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order___Id_produ__3493CFA7">
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_" Type="Self.order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="Id_productdetails" />
+            </Principal>
+            <Dependent Role="order_">
+              <PropertyRef Name="Id_productdetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order___Notes__339FAB6E">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_" Type="Self.order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="order_">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Id_danh__29221CFB">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id_Category" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Id_danhmuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductDe__Id_pr__2CF2ADDF">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id_product" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="Id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TinTuc__Id_Accou__3B40CD36">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TinTuc" Type="Self.TinTuc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="TinTuc">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Projcet_ban_hoaaModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messege" EntityType="Self.Messege" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notify" EntityType="Self.Notify" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_" EntityType="Self.order_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TinTuc" EntityType="Self.TinTuc" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cart__Id_product__30C33EC3" Association="Self.FK__Cart__Id_product__30C33EC3">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__Notes__2FCF1A8A" Association="Self.FK__Cart__Notes__2FCF1A8A">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__Id_Acco__5CA1C101" Association="Self.FK__Comment__Id_Acco__5CA1C101">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__Id_Prod__5D95E53A" Association="Self.FK__Comment__Id_Prod__5D95E53A">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messege__Id_MaGu__59C55456" Association="Self.FK__Messege__Id_MaGu__59C55456">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Messege" EntitySet="Messege" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messege__Id_MaNh__58D1301D" Association="Self.FK__Messege__Id_MaNh__58D1301D">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Messege" EntitySet="Messege" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notify__Id_produ__3864608B" Association="Self.FK__Notify__Id_produ__3864608B">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="Notify" EntitySet="Notify" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notify__watched__37703C52" Association="Self.FK__Notify__watched__37703C52">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Notify" EntitySet="Notify" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order___Id_produ__3493CFA7" Association="Self.FK__order___Id_produ__3493CFA7">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="order_" EntitySet="order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order___Notes__339FAB6E" Association="Self.FK__order___Notes__339FAB6E">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="order_" EntitySet="order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Id_danh__29221CFB" Association="Self.FK__Product__Id_danh__29221CFB">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductDe__Id_pr__2CF2ADDF" Association="Self.FK__ProductDe__Id_pr__2CF2ADDF">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TinTuc__Id_Accou__3B40CD36" Association="Self.FK__TinTuc__Id_Accou__3B40CD36">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="TinTuc" EntitySet="TinTuc" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Projcet_ban_hoaaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id_Account" />
+          </Key>
+          <Property Name="Id_Account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Numberphone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JoinDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id_Category" />
+          </Key>
+          <Property Name="Id_Category" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PictureCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JoinDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="Projcet_ban_hoaaEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Projcet_ban_hoaaModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Projcet_ban_hoaaModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Cart" EntityType="Projcet_ban_hoaaModel.Cart" />
+          <EntitySet Name="Messege" EntityType="Projcet_ban_hoaaModel.Messege" />
+          <EntitySet Name="Notify" EntityType="Projcet_ban_hoaaModel.Notify" />
+          <EntitySet Name="order_" EntityType="Projcet_ban_hoaaModel.order_" />
+          <EntitySet Name="Product" EntityType="Projcet_ban_hoaaModel.Product" />
+          <EntitySet Name="ProductDetails" EntityType="Projcet_ban_hoaaModel.ProductDetails" />
+          <EntitySet Name="TinTuc" EntityType="Projcet_ban_hoaaModel.TinTuc" />
+          <AssociationSet Name="FK__Cart__Notes__2FCF1A8A" Association="Projcet_ban_hoaaModel.FK__Cart__Notes__2FCF1A8A">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messege__Id_MaGu__59C55456" Association="Projcet_ban_hoaaModel.FK__Messege__Id_MaGu__59C55456">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Messege" EntitySet="Messege" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messege__Id_MaNh__58D1301D" Association="Projcet_ban_hoaaModel.FK__Messege__Id_MaNh__58D1301D">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Messege" EntitySet="Messege" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notify__watched__37703C52" Association="Projcet_ban_hoaaModel.FK__Notify__watched__37703C52">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Notify" EntitySet="Notify" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order___Notes__339FAB6E" Association="Projcet_ban_hoaaModel.FK__order___Notes__339FAB6E">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="order_" EntitySet="order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TinTuc__Id_Accou__3B40CD36" Association="Projcet_ban_hoaaModel.FK__TinTuc__Id_Accou__3B40CD36">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="TinTuc" EntitySet="TinTuc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__Id_product__30C33EC3" Association="Projcet_ban_hoaaModel.FK__Cart__Id_product__30C33EC3">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Id_danh__29221CFB" Association="Projcet_ban_hoaaModel.FK__Product__Id_danh__29221CFB">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notify__Id_produ__3864608B" Association="Projcet_ban_hoaaModel.FK__Notify__Id_produ__3864608B">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="Notify" EntitySet="Notify" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order___Id_produ__3493CFA7" Association="Projcet_ban_hoaaModel.FK__order___Id_produ__3493CFA7">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="order_" EntitySet="order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductDe__Id_pr__2CF2ADDF" Association="Projcet_ban_hoaaModel.FK__ProductDe__Id_pr__2CF2ADDF">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <EntitySet Name="Comment" EntityType="Projcet_ban_hoaaModel.Comment" />
+          <AssociationSet Name="FK__Comment__Id_Acco__5CA1C101" Association="Projcet_ban_hoaaModel.FK__Comment__Id_Acco__5CA1C101">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comment__Id_Prod__5D95E53A" Association="Projcet_ban_hoaaModel.FK__Comment__Id_Prod__5D95E53A">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Id_Cart" />
+          </Key>
+          <Property Name="Id_Cart" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Account" Type="Int32" />
+          <Property Name="Id_productdetails" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="TotalMoney" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Messege">
+          <Key>
+            <PropertyRef Name="Id_TinNhan" />
+          </Key>
+          <Property Name="Id_TinNhan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_MaGui" Type="Int32" />
+          <Property Name="Id_MaNhan" Type="Int32" />
+          <Property Name="Noidung" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Notify">
+          <Key>
+            <PropertyRef Name="Id_notify" />
+          </Key>
+          <Property Name="Id_notify" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Account" Type="Int32" />
+          <Property Name="Id_productdetails" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="watched" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Projcet_ban_hoaaModel.FK__Notify__watched__37703C52" FromRole="Notify" ToRole="Account" />
+          <NavigationProperty Name="ProductDetails" Relationship="Projcet_ban_hoaaModel.FK__Notify__Id_produ__3864608B" FromRole="Notify" ToRole="ProductDetails" />
+        </EntityType>
+        <EntityType Name="order_">
+          <Key>
+            <PropertyRef Name="Id_Order" />
+          </Key>
+          <Property Name="Id_Order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Account" Type="Int32" />
+          <Property Name="Id_productdetails" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="TotalMoney" Type="Int32" />
+          <Property Name="Message" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="NgayDat" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id_product" />
+          </Key>
+          <Property Name="Id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_danhmuc" Type="Int32" />
+          <Property Name="NameProduct" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="sales" Type="Int32" />
+          <Property Name="views" Type="Int32" />
+          <Property Name="Imagelinks" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="JoinDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductDetails">
+          <Key>
+            <PropertyRef Name="Id_productdetails" />
+          </Key>
+          <Property Name="Id_productdetails" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_product" Type="Int32" />
+          <Property Name="Size" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Promotionalprice" Type="Int32" />
+          <Property Name="Picture_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Picture_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Picture_3" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TinTuc">
+          <Key>
+            <PropertyRef Name="MaTT" />
+          </Key>
+          <Property Name="MaTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="NoiDung" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NgayDang" Type="DateTime" Precision="3" />
+          <Property Name="Id_Account" Type="Int32" />
+          <Property Name="likee" Type="Int32" />
+          <Property Name="binhluan" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__Cart__Notes__2FCF1A8A">
+          <End Type="Projcet_ban_hoaaModel.Account" Role="Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messege__Id_MaGu__59C55456">
+          <End Type="Projcet_ban_hoaaModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="Projcet_ban_hoaaModel.Messege" Role="Messege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Messege">
+              <PropertyRef Name="Id_MaGui" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messege__Id_MaNh__58D1301D">
+          <End Type="Projcet_ban_hoaaModel.Account" Role="Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.Messege" Role="Messege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Messege">
+              <PropertyRef Name="Id_MaNhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notify__watched__37703C52">
+          <End Type="Projcet_ban_hoaaModel.Account" Role="Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.Notify" Role="Notify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Notify">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order___Notes__339FAB6E">
+          <End Type="Projcet_ban_hoaaModel.Account" Role="Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.order_" Role="order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="order_">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TinTuc__Id_Accou__3B40CD36">
+          <End Type="Projcet_ban_hoaaModel.Account" Role="Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.TinTuc" Role="TinTuc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="TinTuc">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__Id_product__30C33EC3">
+          <End Type="Projcet_ban_hoaaModel.ProductDetails" Role="ProductDetails" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="Id_productdetails" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="Id_productdetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Id_danh__29221CFB">
+          <End Type="Projcet_ban_hoaaModel.Category" Role="Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id_Category" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Id_danhmuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notify__Id_produ__3864608B">
+          <End Type="Projcet_ban_hoaaModel.ProductDetails" Role="ProductDetails" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.Notify" Role="Notify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="Id_productdetails" />
+            </Principal>
+            <Dependent Role="Notify">
+              <PropertyRef Name="Id_productdetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order___Id_produ__3493CFA7">
+          <End Type="Projcet_ban_hoaaModel.ProductDetails" Role="ProductDetails" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.order_" Role="order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="Id_productdetails" />
+            </Principal>
+            <Dependent Role="order_">
+              <PropertyRef Name="Id_productdetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductDe__Id_pr__2CF2ADDF">
+          <End Type="Projcet_ban_hoaaModel.Product" Role="Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.ProductDetails" Role="ProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id_product" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="Id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id_comment" />
+          </Key>
+          <Property Name="id_comment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Account" Type="Int32" />
+          <Property Name="Id_Product" Type="Int32" />
+          <Property Name="binhluan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__Comment__Id_Acco__5CA1C101">
+          <End Type="Projcet_ban_hoaaModel.Account" Role="Account" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comment__Id_Prod__5D95E53A">
+          <End Type="Projcet_ban_hoaaModel.Product" Role="Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Projcet_ban_hoaaModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id_product" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Id_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Projcet_ban_hoaaModelStoreContainer" CdmEntityContainer="Projcet_ban_hoaaEntities2">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Numberphone" ColumnName="Numberphone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id_Category" ColumnName="Id_Category" />
+                <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+                <ScalarProperty Name="PictureCategory" ColumnName="PictureCategory" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Projcet_ban_hoaaModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Projcet_ban_hoaaModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Projcet_ban_hoaaModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Projcet_ban_hoaaModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Projcet_ban_hoaaModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Projcet_ban_hoaaModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Projcet_ban_hoaaModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Projcet_ban_hoaaModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Projcet_ban_hoaaModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Cart">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Id_productdetails" ColumnName="Id_productdetails" />
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+                <ScalarProperty Name="Id_Cart" ColumnName="Id_Cart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messege">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.Messege">
+              <MappingFragment StoreEntitySet="Messege">
+                <ScalarProperty Name="Noidung" ColumnName="Noidung" />
+                <ScalarProperty Name="Id_MaNhan" ColumnName="Id_MaNhan" />
+                <ScalarProperty Name="Id_MaGui" ColumnName="Id_MaGui" />
+                <ScalarProperty Name="Id_TinNhan" ColumnName="Id_TinNhan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notify">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.Notify">
+              <MappingFragment StoreEntitySet="Notify">
+                <ScalarProperty Name="watched" ColumnName="watched" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id_productdetails" ColumnName="Id_productdetails" />
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+                <ScalarProperty Name="Id_notify" ColumnName="Id_notify" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.order_">
+              <MappingFragment StoreEntitySet="order_">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Id_productdetails" ColumnName="Id_productdetails" />
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+                <ScalarProperty Name="Id_Order" ColumnName="Id_Order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="Imagelinks" ColumnName="Imagelinks" />
+                <ScalarProperty Name="views" ColumnName="views" />
+                <ScalarProperty Name="sales" ColumnName="sales" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+                <ScalarProperty Name="Id_danhmuc" ColumnName="Id_danhmuc" />
+                <ScalarProperty Name="Id_product" ColumnName="Id_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDetails">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.ProductDetails">
+              <MappingFragment StoreEntitySet="ProductDetails">
+                <ScalarProperty Name="Picture_3" ColumnName="Picture_3" />
+                <ScalarProperty Name="Picture_2" ColumnName="Picture_2" />
+                <ScalarProperty Name="Picture_1" ColumnName="Picture_1" />
+                <ScalarProperty Name="Promotionalprice" ColumnName="Promotionalprice" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Id_product" ColumnName="Id_product" />
+                <ScalarProperty Name="Id_productdetails" ColumnName="Id_productdetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinTuc">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.TinTuc">
+              <MappingFragment StoreEntitySet="TinTuc">
+                <ScalarProperty Name="binhluan" ColumnName="binhluan" />
+                <ScalarProperty Name="likee" ColumnName="likee" />
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+                <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="MaTT" ColumnName="MaTT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comment">
+            <EntityTypeMapping TypeName="Projcet_ban_hoaaModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="binhluan" ColumnName="binhluan" />
+                <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+                <ScalarProperty Name="id_comment" ColumnName="id_comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

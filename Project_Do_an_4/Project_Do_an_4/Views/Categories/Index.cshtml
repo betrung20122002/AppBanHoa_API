@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Project_Do_an_4.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JoinDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PictureCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoinDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Category }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Category }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Category })
+        </td>
+    </tr>
+}
+
+</table>
